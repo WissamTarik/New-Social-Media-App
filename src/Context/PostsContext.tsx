@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useState } from "react";
-import Cookies from 'cookies-ts'
+import Cookies from "js-cookie";
 import { PostInterface } from "@/Interfaces/PostInterface";
 import axios from "axios";
 export const postContext = createContext<PostContextType>({
@@ -22,8 +22,7 @@ interface PostsContextProviderProps {
 export default function PostsContext({children}:PostsContextProviderProps) {
      const [isLoading, setIsLoading] = useState<boolean>(false)
       const [posts,setPosts]=useState<null|PostInterface[]>(null)
-      const cookies=new Cookies()
-      const token=cookies.get('token')
+      const token=Cookies.get('token')
     async function handleGetPosts(){
         
          setIsLoading(true)

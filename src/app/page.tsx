@@ -2,7 +2,6 @@
 
 import axios from "axios";
 import Image from "next/image";
-import Cookies from "cookies-ts"
 import { useContext, useEffect, useRef, useState } from "react";
 import { PostInterface } from './../Interfaces/PostInterface';
 import Posts from "./_Components/Posts/Posts";

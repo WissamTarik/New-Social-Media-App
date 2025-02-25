@@ -1,9 +1,8 @@
 import { RegisterState } from "@/Interfaces/AuthInterfaces";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import Cookies from 'cookies-ts'
-const cookies=new Cookies()
-const token=cookies.get('token')
+import Cookies from "js-cookie";
+const token=Cookies.get('token')
 export interface CreateCommentData{
     content:string,
     post:string

@@ -1,12 +1,11 @@
 import { PostInterface } from "@/Interfaces/PostInterface";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import Cookies from "cookies-ts"
+import Cookies from "js-cookie";
 
-const cookies=new Cookies()
 
 export const handleSinglePost=createAsyncThunk('post',async (id:string)=>{
-    const token=cookies.get('token')
+    const token=Cookies.get('token')
     try {
          const {data}=await axios.get(`https://linked-posts.routemisr.com/posts/${id}`,{
             headers:{

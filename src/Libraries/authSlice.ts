@@ -1,8 +1,7 @@
 import { LoginData, LoginState, RegisterData, RegisterState } from "@/Interfaces/AuthInterfaces";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import Cookies from "cookies-ts"
-const cookies = new Cookies()
+import Cookies from "js-cookie";
 
 
 export const handleRegister=createAsyncThunk('Register',async(values:RegisterData)=>{
@@ -96,8 +95,7 @@ const initialStateLogin:LoginState={
             state.isLoading=false
             console.log('Login Action-------',action)
             state.token=action.payload?.token? action.payload?.token:null
-            cookies.set('token',action.payload?.token? action.payload?.token:null)
-            localStorage.setItem('token',action.payload?.token? action.payload?.token:null)
+            Cookies.set('token',action.payload?.token? action.payload?.token:null)
 
               
         

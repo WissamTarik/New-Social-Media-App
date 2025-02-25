@@ -6,13 +6,12 @@ import userImage from "../../../../public/userImage.avif"
 import { useRouter } from 'next/navigation'
 
 
-import Cookies from "cookies-ts"
+import Cookies from "js-cookie";
 
 export default function Navbar() {
     const [openMenu, setOpenMenu] = useState(false)
     const router=useRouter()
-    const cookies=new Cookies()
-    const token=cookies.get('token')
+    const token=Cookies.get('token')
     function handleOpenMenu(){
         setOpenMenu(!openMenu)
     }
@@ -23,7 +22,7 @@ export default function Navbar() {
     }
     function handleLogout(){
        localStorage.removeItem('token')
-       cookies.remove('token')
+       Cookies.remove('token')
        router.push('/login')
     }
     const menuItems: MenuItem[] = [

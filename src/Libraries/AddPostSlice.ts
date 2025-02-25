@@ -1,8 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import Cookies from "cookies-ts"
-const cookies=new Cookies()
-const token=cookies.get('token')
+import Cookies from "js-cookie";
+const token=Cookies.get('token')
 export const handleAddPost=createAsyncThunk('addPost',async (formData:object)=>{
         
     try {
