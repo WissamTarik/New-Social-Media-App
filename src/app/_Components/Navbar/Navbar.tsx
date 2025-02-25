@@ -11,7 +11,7 @@ import Cookies from "js-cookie";
 export default function Navbar() {
     const [openMenu, setOpenMenu] = useState(false)
     const router=useRouter()
-    const token=Cookies.get('token')
+    const token=Cookies.get('token')||localStorage.getItem('token')
     function handleOpenMenu(){
         setOpenMenu(!openMenu)
     }

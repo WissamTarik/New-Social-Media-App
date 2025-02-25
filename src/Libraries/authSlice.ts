@@ -96,7 +96,7 @@ const initialStateLogin:LoginState={
             console.log('Login Action-------',action)
             state.token=action.payload?.token? action.payload?.token:null
             Cookies.set('token',action.payload?.token? action.payload?.token:null)
-
+             localStorage.setItem('token',action.payload?.token? action.payload?.token:null)
               
         
         })

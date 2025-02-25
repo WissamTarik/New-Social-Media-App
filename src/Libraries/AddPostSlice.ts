@@ -1,9 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import Cookies from "js-cookie";
-const token=Cookies.get('token')
+const token=Cookies.get('token')||localStorage.getItem('token')
 export const handleAddPost=createAsyncThunk('addPost',async (formData:object)=>{
-        
     try {
         const {data}=await axios.post('https://linked-posts.routemisr.com/posts',formData,{
             headers:{

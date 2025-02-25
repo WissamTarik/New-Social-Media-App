@@ -5,7 +5,7 @@ import Cookies from "js-cookie";
 
 
 export const handleSinglePost=createAsyncThunk('post',async (id:string)=>{
-    const token=Cookies.get('token')
+    const token=Cookies.get('token')||localStorage.getItem('token')
     try {
          const {data}=await axios.get(`https://linked-posts.routemisr.com/posts/${id}`,{
             headers:{
