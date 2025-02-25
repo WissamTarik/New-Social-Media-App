@@ -26,7 +26,7 @@ export default function Posts(props:any) {
           dispatch(handleCreateComment(values)).then((res)=>{
             console.log("Response -",res);
             if(res.payload.message=='success'){
-              toast.success("Comment is added sucessfully", {
+              toast.success("Comment is added successfully", {
                 style: {
                   fontWeight: "bold",
                   color: "green",
