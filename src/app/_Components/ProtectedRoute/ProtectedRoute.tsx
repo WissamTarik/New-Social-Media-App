@@ -11,8 +11,10 @@ export default function ProtectedRoute({ children }: { children: React.ReactNode
   const pathName=usePathname()
   const [isCheckingAuth, setIsCheckingAuth] = useState(true);
   useEffect(() => {
-    const token = Cookies.get("token")||localStorage.getItem('token');
-
+    const token =
+    typeof window !== "undefined"
+      ? localStorage.getItem("token")
+      : Cookies.get("token"); 
     if (token) {
       setIsCheckingAuth(false)
     } else {

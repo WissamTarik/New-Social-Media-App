@@ -2,8 +2,12 @@ import { RegisterState } from "@/Interfaces/AuthInterfaces";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import Cookies from "js-cookie";
-const token=Cookies.get('token')||localStorage.getItem('token')
-export interface CreateCommentData{
+const token =
+  typeof window !== "undefined"
+    ? localStorage.getItem("token")
+    : Cookies.get("token"); 
+    
+    export interface CreateCommentData{
     content:string,
     post:string
 }

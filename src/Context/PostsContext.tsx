@@ -22,8 +22,13 @@ interface PostsContextProviderProps {
 export default function PostsContext({children}:PostsContextProviderProps) {
      const [isLoading, setIsLoading] = useState<boolean>(false)
       const [posts,setPosts]=useState<null|PostInterface[]>(null)
-      const token=Cookies.get('token')||localStorage.getItem('token')
-    async function handleGetPosts(){
+      const token =
+      typeof window !== "undefined"
+        ? localStorage.getItem("token")
+        : Cookies.get("token"); 
+        
+        
+        async function handleGetPosts(){
         
          setIsLoading(true)
      try {
